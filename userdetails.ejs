@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <title>user details</title>
+    <style>
+        .design{
+            border: 1px solid black; border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>User details</h1>
+    <table class="design">
+        <tr class="design">
+            <th class="design">id</th>
+            <th class="design">gender</th>
+            <th class="design">name</th>
+            <th class="design">location</th>
+            <th class="design">email</th>
+            <th class="design">dob</th>
+            <th class="design">registered</th>
+            <th class="design">phone</th>
+            <th class="design">cell</th>
+            <th class="design">id2</th>
+            <th class="design">picture</th>
+            <th class="design">thumbnail</th>
+            <th class="design">nat</th>
+        </tr>
+        <% data.forEach(entry=>{ %>
+        <tr class="design">
+            <td class="design"><%= entry.id  %></td>
+            <td class="design"><%= entry.gender  %></td>
+            <td class="design"><%= entry.name  %></td>
+            <td class="design"><%= entry.location  %></td>
+            <td class="design"><%= entry.email  %></td>
+            <td class="design"><%= entry.dob  %></td>
+            <td class="design"><%= entry.registered  %></td>
+            <td class="design"><%= entry.phone  %></td>
+            <td class="design"><%= entry.cell  %></td>
+            <td class="design"><%= entry.id2  %></td>
+            <td class="design"><%= entry.picture  %></td>
+            <td class="design"><%= entry.thumbnail  %></td>
+            <td class="design"><%= entry.nat  %></td>
+        </tr>
+        <% }) %>
+    </table>
+
+        <% if(pagenumber > 1){%> <a href="/?pagenumber=<%= pagenumber-1 %>">Before</a><% } %>
+            <% for(let i = pagenumber;i<=numofpages;i++) {%>
+                <% if(i===pagenumber){ %>
+                    <a href="/?pagenumber=<%= i %>"><%=i %></a>
+                    <% continue %>
+                <% } %>
+            <a href="/?pagenumber=<%= i %>"><%= i %></a>
+            <% } %>
+            <% if(pagenumber < numofpages){%> <a href="/?pagenumber=<%= pagenumber+1 %>">After</a><% } %>
+
+</body>
+</html>
